@@ -44,13 +44,14 @@ public class Main {
         LocalDateTime mucToNyArrivalTime = LocalDateTime.of(2019, 10,5, 6, 30, 50);
 
         Flight f1 = new Flight("DA235", 60, nyToMucDepartureTime , mucToNyArrivalTime,"New York", "Munchen", "Boing");
-        System.out.println("Flight number is " +f1.flightNumber);
-        System.out.println("Number of seats is " + f1.numberOfSeats);
-        System.out.println("Departure time is " + f1.departureTime);
-        System.out.println("Arrival time is " + f1.arrivalTime);
-        System.out.println("Destanation is " + f1.destination);
-        System.out.println("Departure is " + f1.departure);
-        System.out.println("Aircraft name is " + f1.aircraftName);
+        System.out.println("f1: " + f1);
+
+        Flight f2 = new Flight();
+        System.out.println(f2.getAircraftName());
+        f2.setAircraftName("Airbus");
+        System.out.println(f2.getAircraftName());
+        System.out.println(f2);
+
 
     }
 
