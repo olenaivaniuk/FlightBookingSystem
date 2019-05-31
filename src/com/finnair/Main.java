@@ -38,6 +38,11 @@ public class Main {
         System.out.println(f1);
         System.out.println();
 
+        TicketManager tm = new TicketManager();
+        tm.buyTicket(p1, t1, f1);
+        System.out.println(p1);
+        System.out.println();
+
 
         /*Flight f2 = new Flight();
         f2.setAircraftName("Airbus");
