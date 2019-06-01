@@ -13,10 +13,10 @@ public class Passenger {
     private int age;
     private Ticket[] tickets;
 
-    Passenger() {
+    public Passenger() {
     }
 
-    Passenger(String name, String surName, Gender gender, String passportNumber, long creditCardNumber, int age) { // field ticket isn't in Constructor
+    public Passenger(String name, String surName, Gender gender, String passportNumber, long creditCardNumber, int age) { // field ticket isn't in Constructor
         this.name = name;
         this.surName = surName;
         this.gender = gender;
@@ -26,58 +26,56 @@ public class Passenger {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    String getSurName() {
-        return surName;
+    public String getSurName() {
+        return this.surName;
     }
-
-    void setSurName(String surName) {
+    public void setSurName(String surName) {
         this.surName = surName;
     }
 
-    Gender getGenger() {
-        return gender;
+    public Gender getGenger() {
+        return this.gender;
     }
-
-    void setGender(Gender gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    String getPassportNumber() {
-        return passportNumber;
+    public String getPassportNumber() {
+        return this.passportNumber;
     }
-
     void setPassportNumber(String passportNumber) {
         this.passportNumber = passportNumber;
     }
 
-    long getCreditCardNumber() {
-        return creditCardNumber;
+    public long getCreditCardNumber() {
+        return this.creditCardNumber;
     }
-
-    void setCreditCardNumber(long creditCardNumber) {
+    public void setCreditCardNumber(long creditCardNumber) {
         this.creditCardNumber = creditCardNumber;
     }
 
-    int getAge() {
+    public int getAge() {
         return this.age;
     }
-
     public void setAge(int age) {
         this.age = age;
     }
 
-    //public Ticket[] getTickets() {return this.tickets;}
-    //public void setTickets(Ticket[] tickets) {this.tickets = tickets;}
+    public Ticket[] getTickets() {return this.tickets;}
+    public void setTickets(Ticket[] tickets) {this.tickets = tickets;}
 
+    public void addTicket(Ticket[] tickets) {
+        int num = tickets.length;
+       Ticket [] list = new Ticket[num+1];
+        System.out.println("Number of tickets:" + list.length);
 
-
+    }
 
     public String toString() {
         return "Passenger name: " + this.name + ", Passenger surname: " + this.surName + ", Gender: " + this.gender +

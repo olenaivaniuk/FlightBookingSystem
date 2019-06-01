@@ -10,9 +10,9 @@ public class Flight {
     private String departure;
     private String planeName;
 
-    Flight() {}
+    public Flight() {}
 
-    Flight(String flightNumber, int numberOfSeats, LocalDateTime departureTime, LocalDateTime arrivalTime, String destination,
+    public Flight(String flightNumber, int numberOfSeats, LocalDateTime departureTime, LocalDateTime arrivalTime, String destination,
            String departure, String planeName) {
         this.flightNumber = flightNumber;
         this.numberOfSeats = numberOfSeats;
@@ -23,26 +23,26 @@ public class Flight {
         this.planeName = planeName;
     }
 
-    String getFlightNumber () {return this.flightNumber;}
-    void setFlightNumbet(String flightNumber) {this.flightNumber = flightNumber;}
+    public String getFlightNumber () {return this.flightNumber;}
+    public void setFlightNumbet(String flightNumber) {this.flightNumber = flightNumber;}
 
-    int gerNumberOfSeat () {return  this.numberOfSeats;}
-    void setNumberOfSeats (int numberOfSeats) {this.numberOfSeats = numberOfSeats;}
+    public int gerNumberOfSeat () {return  this.numberOfSeats;}
+    public void setNumberOfSeats (int numberOfSeats) {this.numberOfSeats = numberOfSeats;}
 
-    LocalDateTime getDepartureTime () {return this.departureTime;}
-    void setDepartureTime (LocalDateTime departureTime) {this.departureTime = departureTime;}
+    public LocalDateTime getDepartureTime () {return this.departureTime;}
+    public void setDepartureTime (LocalDateTime departureTime) {this.departureTime = departureTime;}
 
-    LocalDateTime getArrivalTime () {return this.arrivalTime;}
-    void setArrivalTime (LocalDateTime arrivalTime) {this.arrivalTime = arrivalTime;}
+    public LocalDateTime getArrivalTime () {return this.arrivalTime;}
+    public void setArrivalTime (LocalDateTime arrivalTime) {this.arrivalTime = arrivalTime;}
 
-    String getDestination () {return destination;}
-    void setDestination (String destination) {this.destination = destination;}
+    public String getDestination () {return this.destination;}
+    public void setDestination (String destination) {this.destination = destination;}
 
-    String getDeparture () {return departure;}
-    void setDeparture (String departure) {this.departure = departure;}
+    public String getDeparture () {return this.departure;}
+    public void setDeparture (String departure) {this.departure = departure;}
 
-    String getPlaneName (){return this.planeName;}
-    void setPlaneName(String planeName){this.planeName = planeName.toUpperCase();}
+    public String getPlaneName (){return this.planeName;}
+    public void setPlaneName(String planeName){this.planeName = planeName.toUpperCase();}
 
     @Override
     public String toString() {

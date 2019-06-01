@@ -1,8 +1,8 @@
 package com.finnair;
 
 public class Ticket {
-    enum TicketClass{BUSINESS, ECONOMY}
-    enum TicketType{ADULT, CHILD}
+    public enum TicketClass{BUSINESS, ECONOMY}
+    public enum TicketType{ADULT, CHILD}
 
     private String ticketNumber;
     private TicketClass ticketClass;
@@ -11,9 +11,9 @@ public class Ticket {
     private boolean food;
     private Flight flight;
 
-    Ticket() { }
+    public Ticket() { }
 
-    Ticket(String ticketNumber, TicketClass ticketClass, TicketType ticketType, boolean checkedBag, boolean food) { // field flight isn't in Constructor
+    public Ticket(String ticketNumber, TicketClass ticketClass, TicketType ticketType, boolean checkedBag, boolean food) { // field flight isn't in Constructor
         this.ticketNumber = ticketNumber;
         this.ticketClass = ticketClass;
         this.ticketType = ticketType;
@@ -21,20 +21,20 @@ public class Ticket {
         this.food = food;
     }
 
-    String getTicketNumber () {return ticketNumber;}
-    void setTicketNumber(String ticketNumber) {this.ticketNumber = ticketNumber;}
+    public String getTicketNumber () {return this.ticketNumber;}
+    public void setTicketNumber(String ticketNumber) {this.ticketNumber = ticketNumber;}
 
-    TicketClass getTicketClass() {return ticketClass;}
-    void setTicketClass(TicketClass ticketClass) {this.ticketClass = ticketClass;}
+    public TicketClass getTicketClass() {return this.ticketClass;}
+    public void setTicketClass(TicketClass ticketClass) {this.ticketClass = ticketClass;}
 
-    TicketType getTicketType() {return ticketType;}
-    void setTicketType(TicketType ticketType) {this.ticketType = ticketType;}
+    public TicketType getTicketType() {return this.ticketType;}
+    public void setTicketType(TicketType ticketType) {this.ticketType = ticketType;}
 
-    boolean checkedBag() {return checkedBag;}
-    void setCheckedBag(boolean checkedBag) {this.checkedBag = checkedBag;}
+    public boolean checkedBag() {return this.checkedBag;}
+    public void setCheckedBag(boolean checkedBag) {this.checkedBag = checkedBag;}
 
-    boolean getFood() {return food;}
-    void setFood(boolean food) {this.food = food;}
+    public boolean getFood() {return this.food;}
+    public void setFood(boolean food) {this.food = food;}
 
     public Flight getFlight() {return  this.flight;}
     public  void setFlight(Flight flight ){this.flight = flight;}
