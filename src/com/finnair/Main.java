@@ -20,10 +20,21 @@ public class Main {
         t1.setTicketType(Ticket.TicketType.ADULT);
         t1.setCheckedBag(true);
         t1.setFood(true);
-        System.out.println(t1);
+        System.out.println(t2);
         System.out.println();
 
         Ticket[] ar1 = new Ticket[] {t1, t2};
+
+        Passenger p1 = new Passenger();
+        p1.setName("Mia");
+        p1.setSurName("Fisher");
+        p1.setGender(Passenger.Gender.FEMALE);
+        p1.setPassportNumber("LP256366");
+        p1.setCreditCardNumber(522255);
+        p1.setAge(28);
+        //p1.setTickets(ar1);
+        System.out.println(p1);
+        System.out.println();
 
         LocalDateTime nyToMucDepartureTime = LocalDateTime.of(2019, 6, 26, 22,30, 50);
         LocalDateTime mucToNyArrivalTime = LocalDateTime.of(2019, 10,5, 6, 30, 50);
@@ -39,19 +50,8 @@ public class Main {
         System.out.println(f1);
         System.out.println();
 
-        Passenger p1 = new Passenger();
-        p1.setName("Mia");
-        p1.setSurName("Fisher");
-        p1.setGender(Passenger.Gender.FEMALE);
-        p1.setPassportNumber("LP256366");
-        p1.setCreditCardNumber(522255);
-        p1.setAge(28);
-        p1.setTickets(ar1);
-        System.out.println(p1);
-        System.out.println();
-
         TicketManager tm = new TicketManager();
-        tm.buyTicket(p1, ar1);
+        tm.buyTicket(p1, t1, f1);
         System.out.println(p1);
         System.out.println();
 
