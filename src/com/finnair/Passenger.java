@@ -85,13 +85,25 @@ public class Passenger {
     }
 
     public void addTicket(Ticket ticket) {
-        int num = tickets.length;
+        int num = this.tickets.length;
         Ticket[] list = Arrays.copyOf(tickets, num + 1);
         list[num] = ticket;
         System.out.println("Buing a ticket: " + ticket);
         this.tickets = list;
 
     }
+
+    public void addTickets (Ticket[] newTickets) {
+        int num = this.tickets.length;
+        Ticket[] list = Arrays.copyOf(this.tickets, num + newTickets.length);
+        for (int i = 0; i < newTickets.length; i++) {
+            list[num + i] = newTickets[i];
+        }
+        this.tickets = list;
+
+    }
+
+
 
     public String toString() {
         return "Passenger name: " + this.name + ", Passenger surname: " + this.surName + ", Gender: " + this.gender +
@@ -103,11 +115,22 @@ public class Passenger {
         if (tickets.length == 0)
             return "No tickets";
 
-        String info = "";
+        String info = tickets[0].getTicketNumber();
+        for (int i = 1; i < tickets.length; i++) {
+            info += ", " + tickets[i].getTicketNumber() ;
+        }
+
+
+        /*String info = "";
         for (int i = 0; i < tickets.length; i++) {
+            if(i!=0){
+                info += ", ";
+            }
             info += tickets[i].getTicketNumber();
 
-        }
+        }*/
+
+
         return info;
 
 

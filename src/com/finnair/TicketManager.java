@@ -5,4 +5,9 @@ public class TicketManager {
         p.addTicket(t);
         t.setFlight(f);
     }
+
+    public void buyTickets (Passenger p,  Ticket[] t,  Flight [] f) {
+        p.addTickets(t);
+        //t.setFlight(f);
+    }
 }

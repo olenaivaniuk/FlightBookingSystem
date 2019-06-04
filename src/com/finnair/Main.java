@@ -15,15 +15,36 @@ public class Main {
         System.out.println();
 
         Ticket t2 = new Ticket();
-        t1.setTicketNumber("TT55263");
-        t1.setTicketClass(Ticket.TicketClass.ECONOMY);
-        t1.setTicketType(Ticket.TicketType.ADULT);
-        t1.setCheckedBag(true);
-        t1.setFood(true);
-        System.out.println(t2);
-        System.out.println();
+        t2.setTicketNumber("TT55263");
+        t2.setTicketClass(Ticket.TicketClass.ECONOMY);
+        t2.setTicketType(Ticket.TicketType.ADULT);
+        t2.setCheckedBag(true);
+        t2.setFood(true);
+        //System.out.println(t2);
+        //System.out.println();
 
-        Ticket[] ar1 = new Ticket[] {t1, t2};
+        Ticket t3 = new Ticket();
+        t3.setTicketNumber("LL55555");
+        t3.setTicketClass(Ticket.TicketClass.BUSINESS);
+        t3.setTicketType(Ticket.TicketType.ADULT);
+        t3.setCheckedBag(false);
+        t3.setFood(false);
+
+        Ticket t4 = new Ticket();
+        t4.setTicketNumber("DE45555");
+        t4.setTicketClass(Ticket.TicketClass.BUSINESS);
+        t4.setTicketType(Ticket.TicketType.ADULT);
+        t4.setCheckedBag(false);
+        t4.setFood(true);
+
+        Ticket t5 = new Ticket();
+        t5.setTicketNumber("HA5265654");
+        t5.setTicketClass(Ticket.TicketClass.ECONOMY);
+        t5.setTicketType(Ticket.TicketType.ADULT);
+        t5.setCheckedBag(true);
+        t5.setFood(true);
+
+        Ticket[] ar1 = new Ticket[] {t3, t4};
 
         Passenger p1 = new Passenger();
         p1.setName("Mia");
@@ -52,8 +73,16 @@ public class Main {
 
         TicketManager tm = new TicketManager();
         tm.buyTicket(p1, t1, f1);
+        tm.buyTicket(p1, t2, f1);
         System.out.println(p1);
         System.out.println();
+
+        p1.setTickets(ar1);
+        System.out.println(p1);
+        System.out.println();
+
+        tm.buyTicket(p1, t5, f1);
+        System.out.println(p1);
 
 
     }
