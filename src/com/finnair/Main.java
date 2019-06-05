@@ -1,5 +1,6 @@
 package com.finnair;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class Main {
 
@@ -11,8 +12,6 @@ public class Main {
         t1.setTicketType(Ticket.TicketType.ADULT);
         t1.setCheckedBag(true);
         t1.setFood(true);
-        System.out.println(t1);
-        System.out.println();
 
         Ticket t2 = new Ticket();
         t2.setTicketNumber("TT55263");
@@ -37,14 +36,14 @@ public class Main {
         t4.setCheckedBag(false);
         t4.setFood(true);
 
-        Ticket t5 = new Ticket();
-        t5.setTicketNumber("HA5265654");
-        t5.setTicketClass(Ticket.TicketClass.ECONOMY);
-        t5.setTicketType(Ticket.TicketType.ADULT);
-        t5.setCheckedBag(true);
-        t5.setFood(true);
+        Ticket[] arTickets = new Ticket[] {t3, t4};
 
-        Ticket[] ar1 = new Ticket[] {t3, t4};
+        Ticket t6 = new Ticket();
+        t6.setTicketNumber("FV55555444");
+        t6.setTicketClass(Ticket.TicketClass.BUSINESS);
+        t6.setTicketType(Ticket.TicketType.CHILD);
+        t6.setCheckedBag(false);
+        t6.setFood(false);
 
         Passenger p1 = new Passenger();
         p1.setName("Mia");
@@ -56,6 +55,14 @@ public class Main {
         //p1.setTickets(ar1);
         System.out.println(p1);
         System.out.println();
+
+        Passenger p2 = new Passenger();
+        p2.setName("Leonard");
+        p2.setSurName("Hofsteder");
+        p2.setGender(Passenger.Gender.MALE);
+        p2.setPassportNumber("KM522525");
+        p2.setCreditCardNumber(5555522);
+        p2.setAge(34);
 
         LocalDateTime nyToMucDepartureTime = LocalDateTime.of(2019, 6, 26, 22,30, 50);
         LocalDateTime mucToNyArrivalTime = LocalDateTime.of(2019, 10,5, 6, 30, 50);
@@ -71,19 +78,46 @@ public class Main {
         System.out.println(f1);
         System.out.println();
 
+        Flight f2 = new Flight();
+        f2.setFlightNumbet("DB526333");
+        f2.setNumberOfSeats(100);
+        f2.setDepartureTime(nyToMucDepartureTime);
+        f2.setArrivalTime(mucToNyArrivalTime);
+        f2.setDestination("London");
+        f2.setDeparture("Chicago");
+        f2.setPlaneName("Mi-8");
+
+        Flight f3 = new Flight();
+        f3.setFlightNumbet("PL636666");
+        f3.setNumberOfSeats(200);
+        f3.setDepartureTime(nyToMucDepartureTime);
+        f3.setArrivalTime(mucToNyArrivalTime);
+        f3.setDestination("Chicago");
+        f3.setDeparture("Paris");
+        f3.setPlaneName("Airbus");
+
+        Flight [] arFlight = new Flight[] {f2, f3};
+
         TicketManager tm = new TicketManager();
         tm.buyTicket(p1, t1, f1);
-        tm.buyTicket(p1, t2, f1);
+        tm.buyTicket(p1, t2, f2);
         System.out.println(p1);
         System.out.println();
 
-        p1.setTickets(ar1);
-        System.out.println(p1);
+        tm.buyTickets(p2, arTickets, arFlight);
+        System.out.println(p2);
         System.out.println();
 
-        tm.buyTicket(p1, t5, f1);
-        System.out.println(p1);
+        Ticket [] a = p2.getTickets();
+        int num = a.length;
+        Ticket[] list = Arrays.copyOf(a, num + 1);
+        list[num] = t6;
+        p2.setTickets(list);
+        System.out.println(p2);
 
+        //System.out.println(t3.getFlight());
+        /*p2.addTicket(t1); // adding 1 ticket (t6) to passenger (p1)
+        System.out.println(p2);*/
 
     }
 
