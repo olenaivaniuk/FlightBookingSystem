@@ -112,6 +112,7 @@ public class Main {
         int num = a.length;
         Ticket[] list = Arrays.copyOf(a, num + 1);
         list[num] = t6;
+        //t6.setFlight(f3);
         p2.setTickets(list);
         System.out.println(p2);
 

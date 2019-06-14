@@ -88,12 +88,12 @@ public class Passenger {
         int num = this.tickets.length;
         Ticket[] list = Arrays.copyOf(tickets, num + 1);
         list[num] = ticket;
-        System.out.println("Buing a ticket: " + ticket);
+        System.out.println("Buying a ticket: " + ticket);
         this.tickets = list;
 
     }
 
-    public void addTickets (Ticket[] newTickets) {
+    public void addTickets(Ticket[] newTickets) {
         int num = this.tickets.length;
         Ticket[] list = Arrays.copyOf(this.tickets, num + newTickets.length);
         for (int i = 0; i < newTickets.length; i++) {
@@ -104,21 +104,33 @@ public class Passenger {
     }
 
 
-
     public String toString() {
         return "Passenger name: " + this.name + ", Passenger surname: " + this.surName + ", Gender: " + this.gender +
                 ", Passport number: " + this.passportNumber + ", Credit card number: " + this.creditCardNumber +
                 ", Age of passenger: " + this.age + "\nTicket: " + infoAboutTickets(this.tickets);
     }
 
-    public String infoAboutTickets(Ticket[] tickets) {
-        if (tickets.length == 0)
-            return "No tickets";
+    private String infoAboutTicket(Ticket ticket) {
+        if (ticket== null) {
+            return  "No ticket";
+        } else if (ticket.getFlight() == null) {
+            return ticket.getTicketNumber() + "(No flight)";
+        } else
+            return ticket.getTicketNumber() + "(" + ticket.getFlight().getFlightNumber() + ")";
 
-        String info = tickets[0].getTicketNumber();
-        for (int i = 1; i < tickets.length; i++) {
-            info += ", " + tickets[i].getTicketNumber() ;
+    }
+
+    private String infoAboutTickets(Ticket[] tickets) {
+        if (tickets.length == 0) {
+            return "No tickets";
         }
+            //0
+            String info = infoAboutTicket(tickets[0]);
+
+            // 1+
+            for (int i = 1; i < tickets.length; i++) {
+                info += ", " +infoAboutTicket(tickets[i]);
+            }
 
 
         /*String info = "";
@@ -131,8 +143,10 @@ public class Passenger {
         }*/
 
 
-        return info;
+            return info;
 
 
+        }
     }
-}
+
+
