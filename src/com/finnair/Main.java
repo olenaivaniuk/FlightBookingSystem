@@ -1,33 +1,15 @@
 package com.finnair;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Ticket t1 = new Ticket();
-        t1.setTicketNumber("JJ5263");
-        t1.setTicketClass(Ticket.TicketClass.ECONOMY);
-        t1.setTicketType(Ticket.TicketType.ADULT);
-        t1.setCheckedBag(true);
-        t1.setFood(true);
-
-        Ticket t2 = new Ticket();
-        t2.setTicketNumber("TT55263");
-        t2.setTicketClass(Ticket.TicketClass.ECONOMY);
-        t2.setTicketType(Ticket.TicketType.ADULT);
-        t2.setCheckedBag(true);
-        t2.setFood(true);
-        //System.out.println(t2);
-        //System.out.println();
-
-        Ticket t3 = new Ticket();
-        t3.setTicketNumber("LL55555");
-        t3.setTicketClass(Ticket.TicketClass.BUSINESS);
-        t3.setTicketType(Ticket.TicketType.ADULT);
-        t3.setCheckedBag(false);
-        t3.setFood(false);
+        Ticket t1 = generateTicket1();
+        Ticket t2 = generateTicket2();
+        Ticket t3 = generateTicket3();
 
         Ticket t4 = new Ticket();
         t4.setTicketNumber("DE45555");
@@ -36,7 +18,9 @@ public class Main {
         t4.setCheckedBag(false);
         t4.setFood(true);
 
-        Ticket[] arTickets = new Ticket[] {t3, t4};
+        ArrayList arTickets = new ArrayList();
+        arTickets.add(t3);
+        arTickets.add(t4);
 
         Ticket t6 = new Ticket();
         t6.setTicketNumber("FV55555444");
@@ -96,30 +80,83 @@ public class Main {
         f3.setDeparture("Paris");
         f3.setPlaneName("Airbus");
 
-        Flight [] arFlight = new Flight[] {f2, f3};
+        ArrayList arFlight = new ArrayList();
+        arFlight.add(f2);
+        arFlight.add(f3);
 
-        TicketManager tm = new TicketManager();
-        tm.buyTicket(p1, t1, f1);
-        tm.buyTicket(p1, t2, f2);
+
+        TicketManager.buyTicket(p1, t1, f1);
+        TicketManager.buyTicket(p1, t2, f2);
         System.out.println(p1);
         System.out.println();
 
-        tm.buyTickets(p2, arTickets, arFlight);
+        TicketManager.buyTickets(p2, arTickets, arFlight);
         System.out.println(p2);
         System.out.println();
 
-        Ticket [] a = p2.getTickets();
-        int num = a.length;
-        Ticket[] list = Arrays.copyOf(a, num + 1);
-        list[num] = t6;
-        //t6.setFlight(f3);
-        p2.setTickets(list);
+        ArrayList a = p2.getTickets();
+        a.add(t6);
+        p2.setTickets(a);
+        System.out.println(p2);
+        p2.getTickets().add(t1);
         System.out.println(p2);
 
         //System.out.println(t3.getFlight());
         /*p2.addTicket(t1); // adding 1 ticket (t6) to passenger (p1)
         System.out.println(p2);*/
 
+        p2.printShit();
+        int lok = p2.printShit2(32);
+        // int lok = 4;
+
+        System.out.println(lok + 2);
+        System.out.println(p2.printShit2(32) + 2);
+
+        int fuckmea = 10;
+
+        Integer fuckmeb = new Integer(10);
+
+        System.out.println(fuckmea);
+        System.out.println(fuckmeb);
+        System.out.println(fuckmea + fuckmeb);
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(3);
+
+        System.out.println(p1);
+        TicketManager.buyTicket(p1, t4, f1);
+        System.out.println(p1);
     }
+
+    public static Ticket generateTicket1() {
+        Ticket t = new Ticket();
+        t.setTicketNumber("JJ5263");
+        t.setTicketClass(Ticket.TicketClass.ECONOMY);
+        t.setTicketType(Ticket.TicketType.ADULT);
+        t.setCheckedBag(true);
+        t.setFood(true);
+        return t;
+    }
+
+    public static Ticket generateTicket2() {
+        Ticket t = new Ticket();
+        t.setTicketNumber("TT55263");
+        t.setTicketClass(Ticket.TicketClass.ECONOMY);
+        t.setTicketType(Ticket.TicketType.ADULT);
+        t.setCheckedBag(true);
+        t.setFood(true);
+        return t;
+    }
+
+    public static Ticket generateTicket3() {
+        Ticket t = new Ticket();
+        t.setTicketNumber("LL55555");
+        t.setTicketClass(Ticket.TicketClass.BUSINESS);
+        t.setTicketType(Ticket.TicketType.ADULT);
+        t.setCheckedBag(false);
+        t.setFood(false);
+        return t;
+    }
+
 
 }

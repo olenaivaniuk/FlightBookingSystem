@@ -1,10 +1,8 @@
 package com.finnair;
 
-import java.sql.PseudoColumnUsage;
-import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Passenger {
+public class Passenger_arrays {
     public enum Gender {FEMALE, MALE}
 
     private String name;
@@ -13,13 +11,13 @@ public class Passenger {
     private String passportNumber;
     private long creditCardNumber;
     private int age;
-    private ArrayList tickets = new ArrayList();
+    private Ticket[] tickets = new Ticket[0];
 
-    public Passenger() {
+    public Passenger_arrays() {
 
     }
 
-    public Passenger(String name, String surName, Gender gender, String passportNumber, long creditCardNumber, int age) { // field ticket isn't in Constructor
+    public Passenger_arrays(String name, String surName, Gender gender, String passportNumber, long creditCardNumber, int age) { // field ticket isn't in Constructor
         this.name = name;
         this.surName = surName;
         this.gender = gender;
@@ -77,20 +75,31 @@ public class Passenger {
         this.age = age;
     }
 
-    public ArrayList getTickets() {
+    public Ticket[] getTickets() {
         return this.tickets;
     }
 
-    public void setTickets(ArrayList tickets) {
+    public void setTickets(Ticket[] tickets) {
         this.tickets = tickets;
     }
 
     public void addTicket(Ticket ticket) {
-        this.tickets.add(ticket);
+        int num = this.tickets.length;
+        Ticket[] list = Arrays.copyOf(tickets, num + 1);
+        list[num] = ticket;
+        System.out.println("Buying a ticket: " + ticket);
+        this.tickets = list;
+
     }
 
-    public void addTickets(ArrayList newTickets) {
-        this.tickets.addAll(newTickets);
+    public void addTickets(Ticket[] newTickets) {
+        int num = this.tickets.length;
+        Ticket[] list = Arrays.copyOf(this.tickets, num + newTickets.length);
+        for (int i = 0; i < newTickets.length; i++) {
+            list[num + i] = newTickets[i];
+        }
+        this.tickets = list;
+
     }
 
 
@@ -108,18 +117,18 @@ public class Passenger {
         } else
             return ticket.getTicketNumber() + "(" + ticket.getFlight().getFlightNumber() + ")";
 
-            }
+    }
 
-    private String infoAboutTickets(ArrayList tickets) {
-        if (tickets.size() == 0) {
+    private String infoAboutTickets(Ticket[] tickets) {
+        if (tickets.length == 0) {
             return "No tickets";
         }
             //0
-            String info = infoAboutTicket((Ticket) tickets.get(0));
+            String info = infoAboutTicket(tickets[0]);
 
             // 1+
-            for (int i = 1; i < tickets.size(); i++) {
-                info += ", " +infoAboutTicket((Ticket) tickets.get(i));
+            for (int i = 1; i < tickets.length; i++) {
+                info += ", " +infoAboutTicket(tickets[i]);
             }
 
 
@@ -137,19 +146,6 @@ public class Passenger {
 
 
         }
-        public void printShit(){
-            System.out.println("I'm cool");
-            int sum = 2+2;
-            System.out.println("2+2= " + sum);
-    }
-
-    public int printShit2(int input){
-        System.out.println("I'm cool");
-        int sum = 2+2;
-        int sum2 = 3+5;
-        System.out.println("2+2= " + sum);
-        return input + 2;
-    }
     }
 
 
