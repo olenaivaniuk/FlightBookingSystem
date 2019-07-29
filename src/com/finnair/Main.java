@@ -10,75 +10,18 @@ public class Main {
         Ticket t1 = generateTicket1();
         Ticket t2 = generateTicket2();
         Ticket t3 = generateTicket3();
+        Ticket t4 = generateTicket4();
 
-        Ticket t4 = new Ticket();
-        t4.setTicketNumber("DE45555");
-        t4.setTicketClass(Ticket.TicketClass.BUSINESS);
-        t4.setTicketType(Ticket.TicketType.ADULT);
-        t4.setCheckedBag(false);
-        t4.setFood(true);
+        Passenger p1 = generatePassenger1();
+        Passenger p2 = generatePassenger2();
+
+        Flight f1 = generateFlight1();
+        Flight f2 = generateFlight2();
+        Flight f3 = generateFlight3();
 
         ArrayList arTickets = new ArrayList();
         arTickets.add(t3);
         arTickets.add(t4);
-
-        Ticket t6 = new Ticket();
-        t6.setTicketNumber("FV55555444");
-        t6.setTicketClass(Ticket.TicketClass.BUSINESS);
-        t6.setTicketType(Ticket.TicketType.CHILD);
-        t6.setCheckedBag(false);
-        t6.setFood(false);
-
-        Passenger p1 = new Passenger();
-        p1.setName("Mia");
-        p1.setSurName("Fisher");
-        p1.setGender(Passenger.Gender.FEMALE);
-        p1.setPassportNumber("LP256366");
-        p1.setCreditCardNumber(522255);
-        p1.setAge(28);
-        //p1.setTickets(ar1);
-        System.out.println(p1);
-        System.out.println();
-
-        Passenger p2 = new Passenger();
-        p2.setName("Leonard");
-        p2.setSurName("Hofsteder");
-        p2.setGender(Passenger.Gender.MALE);
-        p2.setPassportNumber("KM522525");
-        p2.setCreditCardNumber(5555522);
-        p2.setAge(34);
-
-        LocalDateTime nyToMucDepartureTime = LocalDateTime.of(2019, 6, 26, 22,30, 50);
-        LocalDateTime mucToNyArrivalTime = LocalDateTime.of(2019, 10,5, 6, 30, 50);
-
-        Flight f1 = new Flight();
-        f1.setFlightNumbet("LA256");
-        f1.setNumberOfSeats(56);
-        f1.setDepartureTime(nyToMucDepartureTime);
-        f1.setArrivalTime(mucToNyArrivalTime);
-        f1.setDestination("New York");
-        f1.setDeparture("Munchen");
-        f1.setPlaneName("Boing");
-        System.out.println(f1);
-        System.out.println();
-
-        Flight f2 = new Flight();
-        f2.setFlightNumbet("DB526333");
-        f2.setNumberOfSeats(100);
-        f2.setDepartureTime(nyToMucDepartureTime);
-        f2.setArrivalTime(mucToNyArrivalTime);
-        f2.setDestination("London");
-        f2.setDeparture("Chicago");
-        f2.setPlaneName("Mi-8");
-
-        Flight f3 = new Flight();
-        f3.setFlightNumbet("PL636666");
-        f3.setNumberOfSeats(200);
-        f3.setDepartureTime(nyToMucDepartureTime);
-        f3.setArrivalTime(mucToNyArrivalTime);
-        f3.setDestination("Chicago");
-        f3.setDeparture("Paris");
-        f3.setPlaneName("Airbus");
 
         ArrayList arFlight = new ArrayList();
         arFlight.add(f2);
@@ -95,7 +38,7 @@ public class Main {
         System.out.println();
 
         ArrayList a = p2.getTickets();
-        a.add(t6);
+        a.add(t4);
         p2.setTickets(a);
         System.out.println(p2);
         p2.getTickets().add(t1);
@@ -158,5 +101,84 @@ public class Main {
         return t;
     }
 
+    public static Ticket generateTicket4() {
+        Ticket t = new Ticket();
+        t.setTicketNumber("DE45555");
+        t.setTicketClass(Ticket.TicketClass.BUSINESS);
+        t.setTicketType(Ticket.TicketType.ADULT);
+        t.setCheckedBag(false);
+        t.setFood(true);
+        return t;
+    }
+
+    public static Passenger generatePassenger1() {
+        Passenger p = new Passenger();
+        p.setName("Mia");
+        p.setSurName("Fisher");
+        p.setGender(Passenger.Gender.FEMALE);
+        p.setPassportNumber("LP256366");
+        p.setCreditCardNumber(522255);
+        p.setAge(28);
+        return p;
+    }
+
+    public static Passenger generatePassenger2() {
+        Passenger p = new Passenger();
+        p.setName("Leonard");
+        p.setSurName("Hofsteder");
+        p.setGender(Passenger.Gender.MALE);
+        p.setPassportNumber("KM522525");
+        p.setCreditCardNumber(5555522);
+        p.setAge(34);
+        return p;
+    }
+
+
+
+
+    public static Flight generateFlight1() {
+        LocalDateTime nyToMucDepartureTime = LocalDateTime.of(2019, 6, 26, 22,30, 50);
+        LocalDateTime mucToNyArrivalTime = LocalDateTime.of(2019, 10,5, 6, 30, 50);
+
+        Flight f = new Flight();
+        f.setFlightNumbet("LA256");
+        f.setNumberOfSeats(56);
+        f.setDepartureTime(nyToMucDepartureTime);
+        f.setArrivalTime(mucToNyArrivalTime);
+        f.setDestination("New York");
+        f.setDeparture("Munchen");
+        f.setPlaneName("Boing");
+        return f;
+    }
+
+    public static Flight generateFlight2() {
+        LocalDateTime nyToMucDepartureTime = LocalDateTime.of(2019, 6, 26, 22,30, 50);
+        LocalDateTime mucToNyArrivalTime = LocalDateTime.of(2019, 10,5, 6, 30, 50);
+        Flight f = new Flight();
+
+        f.setFlightNumbet("DB526333");
+        f.setNumberOfSeats(100);
+        f.setDepartureTime(nyToMucDepartureTime);
+        f.setArrivalTime(mucToNyArrivalTime);
+        f.setDestination("London");
+        f.setDeparture("Chicago");
+        f.setPlaneName("Mi-8");
+        return f;
+    }
+
+    public static Flight generateFlight3() {
+        LocalDateTime nyToMucDepartureTime = LocalDateTime.of(2019, 6, 26, 22,30, 50);
+        LocalDateTime mucToNyArrivalTime = LocalDateTime.of(2019, 10,5, 6, 30, 50);
+
+        Flight f = new Flight();
+        f.setFlightNumbet("PL636666");
+        f.setNumberOfSeats(200);
+        f.setDepartureTime(nyToMucDepartureTime);
+        f.setArrivalTime(mucToNyArrivalTime);
+        f.setDestination("Chicago");
+        f.setDeparture("Paris");
+        f.setPlaneName("Airbus");
+        return f;
+    }
 
 }
